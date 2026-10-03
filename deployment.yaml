@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-actions-docker-cicd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: github-actions-docker-cicd
+  template:
+    metadata:
+      labels:
+        app: github-actions-docker-cicd
+    spec:
+      containers:
+        - name: app
+          image: anushabhojaraj/github-actions-docker-cicd:latest
+          ports:
+            - containerPort: 3000
